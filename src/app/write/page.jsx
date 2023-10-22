@@ -5,11 +5,18 @@ import styles from './write.module.css';
 import Image from "next/image";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.bubble.css';
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Write = () => {
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
+
+  const {data, status} = useSession();
+  const router = useRouter();
+
+
 
   return (
     <section className={styles.container}>
